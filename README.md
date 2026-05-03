@@ -2,7 +2,9 @@
 
 Small **Python** client for [Tradier](https://documentation.tradier.com/) **market data** REST endpoints only (`markets/timesales`, `markets/history`, `markets/quotes`, `markets/options/*`). It does **not** implement brokerage account APIs (orders, balances, OAuth).
 
-Used by `finimal-gamma-service` (Pin Predictor bundle) and `spx-gex` (live price timesales, etc.). **Do not** add Tradier to `schwab-core` — that package keeps Schwab response normalization only.
+Used by `finimal-gamma-service` (Pin Predictor bundle, option chains) and `spx-gex` (live price timesales, etc.). **Do not** add Tradier to `schwab-core` — that package keeps Schwab response normalization only.
+
+**finimal-gamma-service:** import timesales and parsers from this repo only — see [`docs/consumers-finimal-gamma-service.md`](./docs/consumers-finimal-gamma-service.md) so candle/HTTP logic is not duplicated under `src/services/`.
 
 **Finimal** (`../finimal`) still owns **Tradier broker OAuth** (`app/services/tradier_oauth.py`) for linking user accounts; that is not market data and is not part of this library.
 
